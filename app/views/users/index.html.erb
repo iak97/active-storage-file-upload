@@ -1,0 +1,34 @@
+<h1>Users List</h1>
+<%= link_to "Create User", new_user_path, class: "btn btn-primary" %><br><br>
+<table class="users-table">
+  <thead>
+    <tr>
+      <!-- <th>S.No<th> -->
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Profile</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <% counter = 1 %> -->
+    <% if @users.present? %>
+    <% @users.each do |user| %>
+      <tr>
+        <!-- <td><%= counter %></td> -->
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= image_tag user.profile_picture, class: "profile-picture" if user.profile_picture.attached? %></td>
+        <td>
+          <%= link_to "View", user_path(user), class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %>
+          <%= link_to "Delete", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this user?" }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+      <!-- <% counter += 1 %> -->
+    <% end %>
+    <% else %>
+    <tr><td colspan=4>No users found</td></tr>
+    <% end %>
+  </tbody>
+</table>

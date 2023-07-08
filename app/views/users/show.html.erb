@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="user-name">Welcome <%= @user.first_name + " " %><%= @user.last_name %>!</h2>
+  <% if @user.profile_picture.attached? %>
+    <%= image_tag @user.profile_picture, class: "profile-picture" %>
+  <% else %>
+    <small><i>No Picture!</i></small>
+  <% end %>
+</div>
