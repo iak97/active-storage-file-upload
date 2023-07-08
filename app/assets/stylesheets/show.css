@@ -1,0 +1,18 @@
+.container {
+    text-align: center;
+  }
+  
+  .user-name {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .profile-picture {
+    display: block;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
