@@ -18,7 +18,11 @@
         <!-- <td><%= counter %></td> -->
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= image_tag user.profile_picture, class: "profile-picture" if user.profile_picture.attached? %></td>
+        <% if user.profile_picture.attached? %>
+          <td><%= image_tag user.profile_picture, class: "profile-picture" %></td>
+        <% else %>
+          <td><%= image_tag "avatar.png", class: "profile-picture" %></td>
+        <% end %>
         <td>
           <%= link_to "View", user_path(user), class: "btn btn-primary" %>
           <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %>
@@ -28,7 +32,7 @@
       <!-- <% counter += 1 %> -->
     <% end %>
     <% else %>
-    <tr><td colspan=4>No users found</td></tr>
+    <tr><td colspan=3>No users found</td></tr>
     <% end %>
   </tbody>
 </table>

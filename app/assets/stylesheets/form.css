@@ -64,6 +64,11 @@ body {
     color: red;
   }
   
+  label.required-field:after {
+    content: " *";
+    color: red;
+}
+
   
   
   
